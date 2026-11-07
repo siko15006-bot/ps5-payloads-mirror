@@ -1,35 +1,71 @@
 name: build-payloads-v3
 on:
-  schedule: [{cron: "7 * * * *"}]
+  schedule: [{cron: "7 * * * *"}]   # hourly
   workflow_dispatch:
-  push: {branches: [main]}
-permissions: {contents: write, pages: write, id-token: write}
-concurrency: {group: pages, cancel-in-progress: false}
+    inputs:
+      force: {description: "Re-download everything", type: boolean, default: false}
+  push:
+    branches: [main]
+    paths: ["scripts/**", ".github/workflows/**"]
+permissions: {contents: write, issues: write, pages: write, id-token: write}
+concurrency: {group: build, cancel-in-progress: false}
+env:
+  MIRROR_BASE: https://github.com/${{ github.repository }}/releases/download/payloads-mirror
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
-      - name: Build catalog + download payloads
+
+      - name: Build catalog (downloads only what changed)
         env: {GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
-        run: python scripts/build_payloads_v3.py --out out --mirror-base "https://github.com/${{ github.repository }}/releases/download/payloads-mirror"
-      - name: Upload files to release
+        run: |
+          python scripts/build_payloads_v3.py --out out --previous payloads_v3.json --mirror-base "$MIRROR_BASE" \
+            ${{ inputs.force && '--force' || '' }}
+
+      - name: Validate (never publish a broken catalog)
+        run: python scripts/validate_catalog.py out/payloads_v3.json payloads_v3.json
+
+      - name: Upload new files to release
         env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
         run: |
           gh release view payloads-mirror >/dev/null 2>&1 || gh release create payloads-mirror --title "payloads-mirror" --notes "auto-built mirror"
-          gh release upload payloads-mirror out/files/* --clobber
-      - name: Commit catalog to repo (served via raw.githubusercontent.com, no Pages needed)
+          if ls out/files/* >/dev/null 2>&1; then gh release upload payloads-mirror out/files/* --clobber; else echo "no new files"; fi
+
+      - name: Commit catalog + changelog
         run: |
           cp out/payloads_v3.json payloads_v3.json
           cp out/icons.json icons.json 2>/dev/null || true
+          if [ -s out/changes.md ]; then python scripts/update_changelog.py out/changes.md CHANGELOG.md; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add payloads_v3.json icons.json
-          git diff --cached --quiet || (git commit -m "Update catalog" && git push)
-      - name: Prepare site (optional GitHub Pages)
-        run: mkdir site && cp out/payloads_v3.json out/icons.json site/ 2>/dev/null; ls site
+          git add payloads_v3.json icons.json CHANGELOG.md 2>/dev/null || git add payloads_v3.json icons.json
+          if git diff --cached --quiet; then echo "catalog unchanged"; else
+            git commit -m "Update catalog"
+            git pull --rebase -q && git push
+          fi
+
+      - name: Notify (GitHub issue assigned to owner -> push notification)
+        if: hashFiles('out/changes.md') != ''
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          gh issue create --title "PS5 payload updates $(date -u +%F\ %H:%M) UTC" \
+            --body-file out/changes.md --assignee "${{ github.repository_owner }}" || \
+          gh issue create --title "PS5 payload updates $(date -u +%F\ %H:%M) UTC" --body-file out/changes.md
+
+      - name: Prune release files no longer referenced
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          python -c "import json;print('\n'.join(p['filename'] for p in json.load(open('payloads_v3.json'))['payloads']))" > /tmp/keep.txt
+          gh release view payloads-mirror --json assets -q '.assets[].name' | while read -r a; do
+            grep -qxF "$a" /tmp/keep.txt || { echo "delete $a"; gh release delete-asset payloads-mirror "$a" -y; }
+          done
+
+      - name: Optional GitHub Pages copy
+        run: mkdir site && cp payloads_v3.json icons.json site/ 2>/dev/null; ls site
       - uses: actions/configure-pages@v5
         continue-on-error: true
       - uses: actions/upload-pages-artifact@v3

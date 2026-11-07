@@ -92,55 +92,72 @@ def pick_asset(name, assets):
     return None
 
 
+def load_json(path):
+    try:
+        with open(path, encoding="utf-8") as f: return json.load(f)
+    except Exception:
+        return {}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--mirror-base", default="", help="base URL of YOUR release; url fields point here")
     ap.add_argument("--out", default="out")
+    ap.add_argument("--previous", default="payloads_v3.json", help="last published catalog; unchanged payloads are not re-downloaded")
+    ap.add_argument("--force", action="store_true", help="re-download everything")
     args = ap.parse_args()
     os.makedirs(os.path.join(args.out, "files"), exist_ok=True)
 
     v2 = json.loads(http(V2_URL))
     base = {p["name"]: p for p in v2["payloads"]}
+    prev = {p["name"]: p for p in load_json(args.previous).get("payloads", [])}
     result, report = [], []
 
     for name, (repo, cat, fw, note) in REPOS.items():
-        old = base.get(name, {})
+        p = prev.get(name)
+        old = p or base.get(name, {})
         try:
             rel = latest_release(repo)
-            asset = pick_asset(name, rel["assets"]) if rel else None
-            if not asset: raise RuntimeError("no matching asset")
-            data = http(asset["browser_download_url"])
-            sha = hashlib.sha256(data).hexdigest()
-            ext = os.path.splitext(asset["name"])[1]
-            if name in EXTRACT:  # zip containing the ELF: mirror the ELF itself (like v2)
-                data = zipfile.ZipFile(io.BytesIO(data)).read(EXTRACT[name]); ext = ".elf"
+            if not rel: raise RuntimeError("no release found")
+            reuse = (p and not args.force and p.get("version") == rel["tag_name"] and p.get("checksum")
+                     and (not args.mirror_base or p.get("url", "").startswith(args.mirror_base.rstrip("/") + "/")))
+            if reuse:
+                entry = dict(p); status = "unchanged"
+            else:
+                asset = pick_asset(name, rel["assets"])
+                if not asset: raise RuntimeError("no matching asset")
+                data = http(asset["browser_download_url"])
+                ext = os.path.splitext(asset["name"])[1]
+                if name in EXTRACT:  # zip containing the ELF: mirror the ELF itself (like v2)
+                    data = zipfile.ZipFile(io.BytesIO(data)).read(EXTRACT[name]); ext = ".elf"
                 sha = hashlib.sha256(data).hexdigest()
-            fname = f"{name}_{rel['tag_name']}{ext}"
-            with open(os.path.join(args.out, "files", fname), "wb") as f: f.write(data)
-            entry = dict(old)  # keep icon_key, description, etc. from v2
-            entry.update({
-                "name": name, "filename": fname,
-                "url": (args.mirror_base.rstrip("/") + "/" + fname) if args.mirror_base else asset["browser_download_url"],
-                "source": f"https://github.com/{repo}/releases",
-                "source_direct": asset["browser_download_url"],
-                "version": rel["tag_name"], "last_update": rel["published_at"][:10],
-                "category": old.get("category", cat), "checksum": sha,
-                "prerelease": bool(rel.get("prerelease")),
-            })
-            entry.setdefault("description", (rel.get("body") or "").strip().split("\n")[0][:120] or name)
-            if name in EXTRACT: entry["extract_file"] = EXTRACT[name]
-            if name in ASSET_RE and name == "zftpd": entry["asset_pattern"] = "zhttp"
-            status = "ok" if old.get("version") == rel["tag_name"] else f"UPDATED {old.get('version','NEW')} -> {rel['tag_name']}"
+                fname = f"{name}_{rel['tag_name']}{ext}"
+                with open(os.path.join(args.out, "files", fname), "wb") as f: f.write(data)
+                entry = dict(old)  # keep icon_key, description, etc.
+                entry.update({
+                    "name": name, "filename": fname,
+                    "url": (args.mirror_base.rstrip("/") + "/" + fname) if args.mirror_base else asset["browser_download_url"],
+                    "source": f"https://github.com/{repo}/releases",
+                    "source_direct": asset["browser_download_url"],
+                    "version": rel["tag_name"], "last_update": rel["published_at"][:10],
+                    "category": old.get("category", cat), "checksum": sha,
+                    "prerelease": bool(rel.get("prerelease")),
+                })
+                entry.setdefault("description", (rel.get("body") or "").strip().split("\n")[0][:120] or name)
+                if name in EXTRACT: entry["extract_file"] = EXTRACT[name]
+                if name == "zftpd": entry["asset_pattern"] = "zhttp"
+                status = "NEW" if not p else f"UPDATED {p.get('version')} -> {rel['tag_name']}"
         except Exception as e:
             if not old:
                 report.append((name, f"SKIPPED (new, failed: {e})")); continue
-            entry = dict(old); status = f"KEPT v2 entry (fetch failed: {e})"
+            entry = dict(old); status = f"KEPT previous entry (fetch failed: {e})"
         entry["fw_11_60"], entry["fw_note"] = fw, note
         result.append(entry); report.append((name, status))
 
-    if "garlic-savemgr" in base:
-        g = dict(base["garlic-savemgr"]); g["fw_11_60"] = "unverified"; g["fw_note"] = "Hosted on git.etawen.dev; kept from v2"
-        result.insert(1, g); report.append(("garlic-savemgr", "KEPT v2 entry"))
+    g = prev.get("garlic-savemgr") or base.get("garlic-savemgr")
+    if g:
+        g = dict(g); g["fw_11_60"] = "unverified"; g["fw_note"] = "Hosted on git.etawen.dev; kept as-is"
+        result.insert(1, g); report.append(("garlic-savemgr", "KEPT (non-GitHub source)"))
 
     try:  # icons.json is referenced relatively by the catalog; copy it next to the JSON
         with open(os.path.join(args.out, v2.get("icons_url", "icons.json")), "wb") as f:
@@ -151,8 +168,27 @@ def main():
     out = {"name": "PS5 Payloads v3", "icons_url": v2.get("icons_url", "icons.json"), "payloads": result}
     with open(os.path.join(args.out, "payloads_v3.json"), "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2, ensure_ascii=False)
+
+    # change report (only when a previous catalog exists, to avoid a 35-line "everything is new" issue)
+    changes = []
+    if prev:
+        cur = {e["name"]: e for e in result}
+        for n, e in cur.items():
+            tag = " (pre-release)" if e.get("prerelease") else ""
+            if n not in prev:
+                changes.append(f"- NEW **{n}** {e.get('version')}{tag} - 11.60: {e.get('fw_11_60')}")
+            elif prev[n].get("version") != e.get("version"):
+                changes.append(f"- **{n}**: {prev[n].get('version')} -> {e.get('version')}{tag} - 11.60: {e.get('fw_11_60')}")
+        for n in prev:
+            if n not in cur: changes.append(f"- REMOVED **{n}**")
+    chg = os.path.join(args.out, "changes.md")
+    if changes:
+        with open(chg, "w", encoding="utf-8") as f: f.write("\n".join(changes) + "\n")
+    elif os.path.exists(chg):
+        os.remove(chg)
+
     for n, s in report: print(f"{n:30} {s}")
-    print(f"\n{len(result)} payloads -> {args.out}/payloads_v3.json")
+    print(f"\n{len(result)} payloads, {len(changes)} change(s) -> {args.out}/payloads_v3.json")
 
 
 if __name__ == "__main__":
