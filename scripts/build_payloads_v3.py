@@ -111,10 +111,12 @@ def main():
             if not asset: raise RuntimeError("no matching asset")
             data = http(asset["browser_download_url"])
             sha = hashlib.sha256(data).hexdigest()
-            fname = f"{name}_{rel['tag_name']}{os.path.splitext(asset['name'])[1]}"
+            ext = os.path.splitext(asset["name"])[1]
+            if name in EXTRACT:  # zip containing the ELF: mirror the ELF itself (like v2)
+                data = zipfile.ZipFile(io.BytesIO(data)).read(EXTRACT[name]); ext = ".elf"
+                sha = hashlib.sha256(data).hexdigest()
+            fname = f"{name}_{rel['tag_name']}{ext}"
             with open(os.path.join(args.out, "files", fname), "wb") as f: f.write(data)
-            if name in EXTRACT:  # zip containing the ELF: checksum of the zip, like v2
-                zipfile.ZipFile(io.BytesIO(data)).getinfo(EXTRACT[name])
             entry = dict(old)  # keep icon_key, description, etc. from v2
             entry.update({
                 "name": name, "filename": fname,
@@ -123,6 +125,7 @@ def main():
                 "source_direct": asset["browser_download_url"],
                 "version": rel["tag_name"], "last_update": rel["published_at"][:10],
                 "category": old.get("category", cat), "checksum": sha,
+                "prerelease": bool(rel.get("prerelease")),
             })
             entry.setdefault("description", (rel.get("body") or "").strip().split("\n")[0][:120] or name)
             if name in EXTRACT: entry["extract_file"] = EXTRACT[name]
