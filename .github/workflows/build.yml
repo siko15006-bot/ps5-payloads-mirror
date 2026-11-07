@@ -20,13 +20,24 @@ jobs:
         run: |
           gh release view payloads-mirror >/dev/null 2>&1 || gh release create payloads-mirror --title "payloads-mirror" --notes "auto-built mirror"
           gh release upload payloads-mirror out/files/* --clobber
-      - name: Prepare site
+      - name: Commit catalog to repo (served via raw.githubusercontent.com, no Pages needed)
+        run: |
+          cp out/payloads_v3.json payloads_v3.json
+          cp out/icons.json icons.json 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add payloads_v3.json icons.json
+          git diff --cached --quiet || (git commit -m "Update catalog" && git push)
+      - name: Prepare site (optional GitHub Pages)
         run: mkdir site && cp out/payloads_v3.json out/icons.json site/ 2>/dev/null; ls site
       - uses: actions/configure-pages@v5
+        continue-on-error: true
       - uses: actions/upload-pages-artifact@v3
+        continue-on-error: true
         with: {path: site}
   deploy:
     needs: build
+    continue-on-error: true
     runs-on: ubuntu-latest
     environment: {name: github-pages, url: "${{ steps.d.outputs.page_url }}"}
     steps:
