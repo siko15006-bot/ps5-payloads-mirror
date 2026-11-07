@@ -57,6 +57,8 @@ REPOS = {
  # --- NEW compared with v2 (verify it exists / has release assets before relying on it) ---
  "gdbsrv":                  ("ps5-payload-dev/gdbsrv", "Utilities & Tools", "unverified", "NEW - GDB server, no firmware statement"),
  "Save-BKP":                ("GabrielSilla/Save-BKP", "Utilities & Tools", "unverified", "Dev tested 13.00 only; backup to exFAT USB, dashboard :9088 has no login, Restore is experimental - test with a disposable save"),
+ "padbridge":               ("sub0x00001/padbridge", "Utilities & Tools", "unverified", "Tested on 13.60 only; BT pads via 8BitDo USB Wireless Adapter 2; DualShock 4 untested; vibration documented"),
+ "OmniPad-PS5":             ("diegobarbosaa/OmniPad-PS5", "Utilities & Tools", "likely", "README states 7.00-13.60; verified on 13.60; DS4 support not hardware-tested"),
 }
 # not on GitHub (kept exactly as in v2): garlic-savemgr (git.etawen.dev)
 
@@ -67,6 +69,8 @@ ASSET_RE = {
  "WebKit-Autoloader-Installer": r"installer.*\.elf$",
  "etaHEN": r"\.bin$",
  "ps5upload": r"\.elf$",
+ "padbridge": r"^padbridge(?!-probe).*\.elf$",
+ "OmniPad-PS5": r"^OmniPad-PS5.*\.elf$",
 }
 EXTRACT = {"ShadowMountPlus": "shadowmountplus.elf"}
 # fixed descriptions (when the release body is not a usable one-liner)
