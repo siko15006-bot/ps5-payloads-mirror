@@ -37,7 +37,7 @@ REPOS = {
  "ShadowMountPlus":         ("drakmor/ShadowMountPlus", "Utilities & Tools", "unverified", "No firmware statement"),
  "zftpd":                   ("seregonwar/zftpd", "Networking & Servers", "unverified", "No firmware statement"),
  "LiveShell":               ("ZiZc3/LiveShell", "Utilities & Tools", "unverified", "No firmware statement"),
- "WelcomeHubActivator":     ("ghost1372/WelcomeHubActivator", "Utilities & Tools", "unverified", "No firmware statement"),
+ "WelcomeHubActivator":     ("ghost1372/WelcomeHubActivator", "Utilities & Tools", "yes", "README: 10.00-13.60; needs fake activation first; backs up app.db"),
  "PS5Save":                 ("heni0xyz/PS5Save", "Utilities & Tools", "unverified", "No firmware statement"),
  "ps-patch-system":         ("illusionyy/ps-patch-system", "Utilities & Tools", "unverified", "Only mentions 7.XX patterns"),
  "PKG-Manager":             ("itsPLK/ps5-pkg-manager", "Utilities & Tools", "unverified", "No firmware statement"),
