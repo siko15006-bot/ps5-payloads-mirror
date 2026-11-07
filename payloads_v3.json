@@ -31,7 +31,7 @@
       "checksum": "52ada30119d4f40800047f6bb8ece2beb15f836b3f3c74fda100e80fb54da30e",
       "icon_key": "2cc3ca2be798749bb50ba4dc2afcb00a321542352e95087aa89b0e53c9b3e2ed",
       "fw_11_60": "unverified",
-      "fw_note": "Hosted on git.etawen.dev; kept from v2"
+      "fw_note": "Hosted on git.etawen.dev; kept as-is"
     },
     {
       "name": "kstuff-lite",
