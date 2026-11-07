@@ -572,7 +572,7 @@
       "category": "Utilities & Tools",
       "checksum": "c78236c2af44251bfb3f87d31d00f82548159a367ccebf466fb6e1fc82f4995c",
       "prerelease": false,
-      "description": "**Full Changelog**: https://github.com/GabrielSilla/Save-BKP/commits/v0.65",
+      "description": "Backs up save games to an exFAT USB when a game closes. Web dashboard on port 9088 (no login).",
       "fw_11_60": "unverified",
       "fw_note": "Dev tested 13.00 only; backup to exFAT USB, dashboard :9088 has no login, Restore is experimental - test with a disposable save"
     }
