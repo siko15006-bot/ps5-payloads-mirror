@@ -560,6 +560,21 @@
       "description": "rebuild with latest sdk",
       "fw_11_60": "unverified",
       "fw_note": "NEW - GDB server, no firmware statement"
+    },
+    {
+      "name": "Save-BKP",
+      "filename": "Save-BKP_v0.65.elf",
+      "url": "https://github.com/siko15006-bot/ps5-payloads-mirror/releases/download/payloads-mirror/Save-BKP_v0.65.elf",
+      "source": "https://github.com/GabrielSilla/Save-BKP/releases",
+      "source_direct": "https://github.com/GabrielSilla/Save-BKP/releases/download/v0.65/save-bkp-v0.65.elf",
+      "version": "v0.65",
+      "last_update": "2026-11-06",
+      "category": "Utilities & Tools",
+      "checksum": "c78236c2af44251bfb3f87d31d00f82548159a367ccebf466fb6e1fc82f4995c",
+      "prerelease": false,
+      "description": "**Full Changelog**: https://github.com/GabrielSilla/Save-BKP/commits/v0.65",
+      "fw_11_60": "unverified",
+      "fw_note": "Dev tested 13.00 only; backup to exFAT USB, dashboard :9088 has no login, Restore is experimental - test with a disposable save"
     }
   ]
 }
