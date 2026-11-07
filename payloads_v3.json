@@ -163,15 +163,15 @@
     },
     {
       "name": "ps5upload",
-      "filename": "ps5upload_v11.5.1.elf",
-      "url": "https://github.com/siko15006-bot/ps5-payloads-mirror/releases/download/payloads-mirror/ps5upload_v11.5.1.elf",
+      "filename": "ps5upload_v11.5.2.elf",
+      "url": "https://github.com/siko15006-bot/ps5-payloads-mirror/releases/download/payloads-mirror/ps5upload_v11.5.2.elf",
       "source": "https://github.com/phantomptr/ps5upload/releases",
-      "source_direct": "https://github.com/phantomptr/ps5upload/releases/download/v11.5.1/ps5upload-11.5.1.elf",
+      "source_direct": "https://github.com/phantomptr/ps5upload/releases/download/v11.5.2/ps5upload-11.5.2.elf",
       "description": "Fast, reliable transfers from your computer to your PS5 (requires PC app)",
       "last_update": "2026-11-07",
-      "version": "v11.5.1",
+      "version": "v11.5.2",
       "category": "Networking & Servers",
-      "checksum": "e6059aafb53eb48b8bc0ce31f2f0db3b0b5e58d97fea7b7cf813e66a5086b08c",
+      "checksum": "1c2a6fe82de8438219c01c8c866deffd2b88ec3896bccb649601ef1fe1bc84c5",
       "icon_key": "8659496467090d2a8b6c7b1a6887702cc15d5b1be3ca05aee99f2b7c382244b0",
       "prerelease": true,
       "fw_11_60": "unverified",
@@ -288,8 +288,8 @@
       "checksum": "f989cc412ef782a01f394fe80cf8fc237970884ba90ce4fe4baac165c0b5a2a6",
       "icon_key": "c056a87a3134ccd14cecb017514c0cfe39d75b66518bd1f22e4309f427ef6d8e",
       "prerelease": false,
-      "fw_11_60": "unverified",
-      "fw_note": "No firmware statement"
+      "fw_11_60": "yes",
+      "fw_note": "README: 10.00-13.60; needs fake activation first; backs up app.db"
     },
     {
       "name": "PS5Save",
