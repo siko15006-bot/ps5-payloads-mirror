@@ -56,6 +56,7 @@ REPOS = {
  "BackPork":                ("BestPig/BackPork", "System & Jailbreak", "unverified", "No firmware statement"),
  # --- NEW compared with v2 (verify it exists / has release assets before relying on it) ---
  "gdbsrv":                  ("ps5-payload-dev/gdbsrv", "Utilities & Tools", "unverified", "NEW - GDB server, no firmware statement"),
+ "Save-BKP":                ("GabrielSilla/Save-BKP", "Utilities & Tools", "unverified", "Dev tested 13.00 only; backup to exFAT USB, dashboard :9088 has no login, Restore is experimental - test with a disposable save"),
 }
 # not on GitHub (kept exactly as in v2): garlic-savemgr (git.etawen.dev)
 
