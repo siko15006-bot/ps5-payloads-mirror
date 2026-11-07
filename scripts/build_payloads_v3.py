@@ -69,6 +69,8 @@ ASSET_RE = {
  "ps5upload": r"\.elf$",
 }
 EXTRACT = {"ShadowMountPlus": "shadowmountplus.elf"}
+# fixed descriptions (when the release body is not a usable one-liner)
+DESC = {"Save-BKP": "Backs up save games to an exFAT USB when a game closes. Web dashboard on port 9088 (no login)."}
 
 
 def http(url, accept=None):
@@ -152,6 +154,7 @@ def main():
             if not old:
                 report.append((name, f"SKIPPED (new, failed: {e})")); continue
             entry = dict(old); status = f"KEPT previous entry (fetch failed: {e})"
+        if name in DESC: entry["description"] = DESC[name]
         entry["fw_11_60"], entry["fw_note"] = fw, note
         result.append(entry); report.append((name, status))
 
