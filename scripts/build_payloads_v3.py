@@ -59,6 +59,13 @@ REPOS = {
  "Save-BKP":                ("GabrielSilla/Save-BKP", "Utilities & Tools", "unverified", "Dev tested 13.00 only; backup to exFAT USB, dashboard :9088 has no login, Restore is experimental - test with a disposable save"),
  "padbridge":               ("sub0x00001/padbridge", "Utilities & Tools", "unverified", "Tested on 13.60 only; BT pads via 8BitDo USB Wireless Adapter 2; DualShock 4 untested; vibration documented"),
  "OmniPad-PS5":             ("diegobarbosaa/OmniPad-PS5", "Utilities & Tools", "likely", "README states 7.00-13.60; verified on 13.60; DS4 support not hardware-tested"),
+ "ps5-patchdl":             ("knutwurst/ps5-patchdl", "Utilities & Tools", "yes", "README: 1.00-13.60, author tested on 11.60 and 13.60; downloads official game updates"),
+ "Common-FPS-for-PS5":      ("porhe911/Common-FPS-for-PS5", "Utilities & Tools", "yes", "FPS overlay; README: tested on 11.60 by the user (not every game/mode)"),
+ "PoorDS4":                 ("ItsBlurf/PoorDS4", "Utilities & Tools", "yes", "Wireless DS4 in native games; tested on 11.60; vibration does NOT work; load one bridge at a time, use PoorDS4-stop before replacing"),
+ "PS5-KBM-Bridge":          ("coru182/PS5-KBM-Bridge", "Utilities & Tools", "yes", "Mouse/keyboard bridge; README: tested on 11.60 with elfldr, kstuff, ShadowMountPlus, backpork"),
+ "PS5-TabShifter":          ("xvvulcanvx/PS5-TabShifter", "Utilities & Tools", "yes", "README: universal FW 5.00-13.60; move apps between Games/Media tabs"),
+ "PlayTime":                ("ghost1372/PlayTime", "Utilities & Tools", "likely", "README: works on any firmware your loader supports; edits app.db (backs up to /data/playtime_app.db.bak)"),
+ "FGG-PlayPods":            ("FGGstore/FGG-PlayPods", "Utilities & Tools", "yes", "Bluetooth headset audio; README badge: tested on 11.60"),
 }
 # not on GitHub (kept exactly as in v2): garlic-savemgr (git.etawen.dev)
 
@@ -71,6 +78,13 @@ ASSET_RE = {
  "ps5upload": r"\.elf$",
  "padbridge": r"^padbridge(?!-probe).*\.elf$",
  "OmniPad-PS5": r"^OmniPad-PS5.*\.elf$",
+ "ps5-patchdl": r"^patchdl.*\.elf$",
+ "Common-FPS-for-PS5": r"^Common_FPS.*\.elf$",
+ "PoorDS4": r"^PoorDS4(?!-status|-stop).*\.elf$",
+ "PS5-KBM-Bridge": r"^ps5-kbm-bridge.*\.elf$",
+ "PS5-TabShifter": r"^TabShifter.*\.elf$",
+ "PlayTime": r"^PlayTime.*\.elf$",
+ "FGG-PlayPods": r"^fgg-playpods.*\.elf$",
 }
 EXTRACT = {"ShadowMountPlus": "shadowmountplus.elf"}
 # fixed descriptions (when the release body is not a usable one-liner)
