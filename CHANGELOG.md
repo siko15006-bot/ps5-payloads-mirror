@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-08 18:48 UTC
+- NEW **ProsperoMgr** v1.1 - 11.60: unverified
+
 ## 2026-11-08 18:27 UTC
 - NEW **AnyPad** v0.9.5-beta - 11.60: unverified
 

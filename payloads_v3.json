@@ -607,6 +607,21 @@
       "fw_note": "README states 7.00-13.60; verified on 13.60; DS4 support not hardware-tested"
     },
     {
+      "name": "ProsperoMgr",
+      "filename": "ProsperoMgr_v1.1.elf",
+      "url": "https://github.com/siko15006-bot/ps5-payloads-mirror/releases/download/payloads-mirror/ProsperoMgr_v1.1.elf",
+      "source": "https://github.com/notmaj0r/ProsperoMgr/releases",
+      "source_direct": "https://github.com/notmaj0r/ProsperoMgr/releases/download/v1.1/ProsperoMgr.elf",
+      "version": "v1.1",
+      "last_update": "2026-09-28",
+      "category": "Utilities & Tools",
+      "checksum": "e7a6bb544adb2fb2a61aa9cc83b0ad15f70b32d7511a3de0f1fb88812f11983c",
+      "prerelease": false,
+      "description": "Prospero Manager v1.1\r",
+      "fw_11_60": "unverified",
+      "fw_note": "Web dashboard on port 8080-style IP page: file manager, PKG install, save backup/restore, autoloader, accounts (experimental). No firmware range stated by the author; not confirmed on 11.60"
+    },
+    {
       "name": "AnyPad",
       "filename": "AnyPad_v0.9.5-beta.elf",
       "url": "https://github.com/siko15006-bot/ps5-payloads-mirror/releases/download/payloads-mirror/AnyPad_v0.9.5-beta.elf",
