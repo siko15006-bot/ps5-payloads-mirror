@@ -607,6 +607,21 @@
       "fw_note": "README states 7.00-13.60; verified on 13.60; DS4 support not hardware-tested"
     },
     {
+      "name": "AnyPad",
+      "filename": "AnyPad_v0.9.5-beta.elf",
+      "url": "https://github.com/siko15006-bot/ps5-payloads-mirror/releases/download/payloads-mirror/AnyPad_v0.9.5-beta.elf",
+      "source": "https://codeberg.org/elmonomalva0/Any-Pad-ps5/releases",
+      "source_direct": "https://codeberg.org/elmonomalva0/Any-Pad-ps5/releases/download/v0.9.5-beta/AnyPad-PS5-0.9.5-beta.elf",
+      "version": "v0.9.5-beta",
+      "last_update": "2026-10-14",
+      "category": "Utilities & Tools",
+      "checksum": "08ebdc013810d2a54f879ac3033a969c62280dccfc2a1ea4a04b161b891db816",
+      "prerelease": false,
+      "description": "**14 October 2026** · The source code is now public (GPL-3.0-or-later), together with a guide for working on AnyPad with",
+      "fw_11_60": "unverified",
+      "fw_note": "Hosted on Codeberg. Tested on 10.01; DualShock 4 verified (BT pairing); DS4 rumble not documented. Web UI on port 8095; stop with 'Stop AnyPad PS5' on its page"
+    },
+    {
       "name": "ps5-patchdl",
       "filename": "ps5-patchdl_v0.3.12.elf",
       "url": "https://github.com/siko15006-bot/ps5-payloads-mirror/releases/download/payloads-mirror/ps5-patchdl_v0.3.12.elf",

@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-08 18:27 UTC
+- NEW **AnyPad** v0.9.5-beta - 11.60: unverified
+
 ## 2026-11-08 07:05 UTC
 - **ps5upload**: v11.5.2 -> v11.6.0 - 11.60: unverified
 - **WebKit-Autoloader-Installer**: v0.7.0 -> v0.7.1 - 11.60: unverified
