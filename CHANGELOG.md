@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-08 19:27 UTC
+- **ps5upload**: v11.6.0 -> v12.0.0 (pre-release) - 11.60: unverified
+
 ## 2026-11-08 18:48 UTC
 - NEW **ProsperoMgr** v1.1 - 11.60: unverified
 

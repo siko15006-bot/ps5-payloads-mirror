@@ -163,17 +163,17 @@
     },
     {
       "name": "ps5upload",
-      "filename": "ps5upload_v11.6.0.elf",
-      "url": "https://github.com/siko15006-bot/ps5-payloads-mirror/releases/download/payloads-mirror/ps5upload_v11.6.0.elf",
+      "filename": "ps5upload_v12.0.0.elf",
+      "url": "https://github.com/siko15006-bot/ps5-payloads-mirror/releases/download/payloads-mirror/ps5upload_v12.0.0.elf",
       "source": "https://github.com/phantomptr/ps5upload/releases",
-      "source_direct": "https://github.com/phantomptr/ps5upload/releases/download/v11.6.0/ps5upload-11.6.0.elf",
+      "source_direct": "https://github.com/phantomptr/ps5upload/releases/download/v12.0.0/ps5upload-12.0.0.elf",
       "description": "Fast, reliable transfers from your computer to your PS5 (requires PC app)",
       "last_update": "2026-11-08",
-      "version": "v11.6.0",
+      "version": "v12.0.0",
       "category": "Networking & Servers",
-      "checksum": "13dca53b2216d920ad94b9564cba68fd085d4ea0f1f0193be5b5299c9872e67e",
+      "checksum": "ec3da9d9a20a9141e722bc1101ade6e6264cbd147566e866f3f823143e9b28a3",
       "icon_key": "8659496467090d2a8b6c7b1a6887702cc15d5b1be3ca05aee99f2b7c382244b0",
-      "prerelease": false,
+      "prerelease": true,
       "fw_11_60": "unverified",
       "fw_note": "No firmware statement"
     },
@@ -619,7 +619,7 @@
       "prerelease": false,
       "description": "Prospero Manager v1.1\r",
       "fw_11_60": "unverified",
-      "fw_note": "Web dashboard on port 8080-style IP page: file manager, PKG install, save backup/restore, autoloader, accounts (experimental). No firmware range stated by the author; not confirmed on 11.60"
+      "fw_note": "Web dashboard (open the PS5 IP in a browser): file manager, PKG install, save backup/restore, autoloader, accounts (experimental). No firmware range stated by the author; not confirmed on 11.60"
     },
     {
       "name": "AnyPad",
