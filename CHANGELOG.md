@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-08 23:33 UTC
+- **ftpsrv**: v0.21.1 -> v0.22 (pre-release) - 11.60: unverified
+
 ## 2026-11-08 21:35 UTC
 - **ShadowMountPlus**: 1.7beta11 -> 1.7beta12 (pre-release) - 11.60: unverified
 - NEW **PS5-Suite** v8.0.0 - 11.60: unverified
