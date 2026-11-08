@@ -59,7 +59,7 @@ REPOS = {
  "Save-BKP":                ("GabrielSilla/Save-BKP", "Utilities & Tools", "unverified", "Dev tested 13.00 only; backup to exFAT USB, dashboard :9088 has no login, Restore is experimental - test with a disposable save"),
  "padbridge":               ("sub0x00001/padbridge", "Utilities & Tools", "unverified", "Tested on 13.60 only; BT pads via 8BitDo USB Wireless Adapter 2; DualShock 4 untested; vibration documented"),
  "OmniPad-PS5":             ("diegobarbosaa/OmniPad-PS5", "Utilities & Tools", "likely", "README states 7.00-13.60; verified on 13.60; DS4 support not hardware-tested"),
- "ProsperoMgr":             ("notmaj0r/ProsperoMgr", "Utilities & Tools", "unverified", "Web dashboard on port 8080-style IP page: file manager, PKG install, save backup/restore, autoloader, accounts (experimental). No firmware range stated by the author; not confirmed on 11.60"),
+ "ProsperoMgr":             ("notmaj0r/ProsperoMgr", "Utilities & Tools", "unverified", "Web dashboard (open the PS5 IP in a browser): file manager, PKG install, save backup/restore, autoloader, accounts (experimental). No firmware range stated by the author; not confirmed on 11.60"),
  "AnyPad":                  ("codeberg.org/elmonomalva0/Any-Pad-ps5", "Utilities & Tools", "unverified", "Hosted on Codeberg. Tested on 10.01; DualShock 4 verified (BT pairing); DS4 rumble not documented. Web UI on port 8095; stop with 'Stop AnyPad PS5' on its page"),
  "ps5-patchdl":             ("knutwurst/ps5-patchdl", "Utilities & Tools", "yes", "README: 1.00-13.60, author tested on 11.60 and 13.60; downloads official game updates"),
  "Common-FPS-for-PS5":      ("porhe911/Common-FPS-for-PS5", "Utilities & Tools", "yes", "FPS overlay; README: tested on 11.60 by the user (not every game/mode)"),
