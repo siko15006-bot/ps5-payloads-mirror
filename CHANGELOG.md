@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-08 07:05 UTC
+- **ps5upload**: v11.5.2 -> v11.6.0 - 11.60: unverified
+- **WebKit-Autoloader-Installer**: v0.7.0 -> v0.7.1 - 11.60: unverified
+
 ## 2026-11-07 23:55 UTC
 - NEW **ps5-patchdl** v0.3.12 - 11.60: yes
 - NEW **Common-FPS-for-PS5** v1.2.3 - 11.60: yes
