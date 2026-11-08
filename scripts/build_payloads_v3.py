@@ -59,6 +59,7 @@ REPOS = {
  "Save-BKP":                ("GabrielSilla/Save-BKP", "Utilities & Tools", "unverified", "Dev tested 13.00 only; backup to exFAT USB, dashboard :9088 has no login, Restore is experimental - test with a disposable save"),
  "padbridge":               ("sub0x00001/padbridge", "Utilities & Tools", "unverified", "Tested on 13.60 only; BT pads via 8BitDo USB Wireless Adapter 2; DualShock 4 untested; vibration documented"),
  "OmniPad-PS5":             ("diegobarbosaa/OmniPad-PS5", "Utilities & Tools", "likely", "README states 7.00-13.60; verified on 13.60; DS4 support not hardware-tested"),
+ "AnyPad":                  ("codeberg.org/elmonomalva0/Any-Pad-ps5", "Utilities & Tools", "unverified", "Hosted on Codeberg. Tested on 10.01; DualShock 4 verified (BT pairing); DS4 rumble not documented. Web UI on port 8095; stop with 'Stop AnyPad PS5' on its page"),
  "ps5-patchdl":             ("knutwurst/ps5-patchdl", "Utilities & Tools", "yes", "README: 1.00-13.60, author tested on 11.60 and 13.60; downloads official game updates"),
  "Common-FPS-for-PS5":      ("porhe911/Common-FPS-for-PS5", "Utilities & Tools", "yes", "FPS overlay; README: tested on 11.60 by the user (not every game/mode)"),
  "PoorDS4":                 ("ItsBlurf/PoorDS4", "Utilities & Tools", "yes", "Wireless DS4 in native games; tested on 11.60; vibration does NOT work; load one bridge at a time, use PoorDS4-stop before replacing"),
@@ -78,6 +79,7 @@ ASSET_RE = {
  "ps5upload": r"\.elf$",
  "padbridge": r"^padbridge(?!-probe).*\.elf$",
  "OmniPad-PS5": r"^OmniPad-PS5.*\.elf$",
+ "AnyPad": r"^AnyPad-PS5.*\.elf$",
  "ps5-patchdl": r"^patchdl.*\.elf$",
  "Common-FPS-for-PS5": r"^Common_FPS.*\.elf$",
  "PoorDS4": r"^PoorDS4(?!-status|-stop).*\.elf$",
@@ -99,8 +101,20 @@ def http(url, accept=None):
         return r.read()
 
 
+def is_gitea(repo):  # "host/owner/name" (e.g. codeberg.org/user/repo) vs GitHub "owner/name"
+    return repo.count("/") == 2
+
+
+def source_url(repo):
+    return f"https://{repo}/releases" if is_gitea(repo) else f"https://github.com/{repo}/releases"
+
+
 def latest_release(repo):
-    rels = json.loads(http(f"https://api.github.com/repos/{repo}/releases?per_page=10"))
+    if is_gitea(repo):
+        host, path = repo.split("/", 1)
+        rels = json.loads(http(f"https://{host}/api/v1/repos/{path}/releases?limit=10"))
+    else:
+        rels = json.loads(http(f"https://api.github.com/repos/{repo}/releases?per_page=10"))
     rels = [r for r in rels if not r.get("draft")]
     return rels[0] if rels else None  # newest first, prereleases included (many tools only ship betas)
 
@@ -158,7 +172,7 @@ def main():
                 entry.update({
                     "name": name, "filename": fname,
                     "url": (args.mirror_base.rstrip("/") + "/" + fname) if args.mirror_base else asset["browser_download_url"],
-                    "source": f"https://github.com/{repo}/releases",
+                    "source": source_url(repo),
                     "source_direct": asset["browser_download_url"],
                     "version": rel["tag_name"], "last_update": rel["published_at"][:10],
                     "category": old.get("category", cat), "checksum": sha,
