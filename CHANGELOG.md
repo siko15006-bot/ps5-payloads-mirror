@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-09 05:46 UTC
+- **ps5upload**: v12.0.0 -> v12.2.0 - 11.60: unverified
+
 ## 2026-11-08 23:33 UTC
 - **ftpsrv**: v0.21.1 -> v0.22 (pre-release) - 11.60: unverified
 
