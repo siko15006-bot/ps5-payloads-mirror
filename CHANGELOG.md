@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-09 15:52 UTC
+- **ps5upload**: v12.2.0 -> v12.3.0 - 11.60: unverified
+- **ProsperoMgr**: v1.1 -> v1.2 - 11.60: unverified
+
 ## 2026-11-09 05:46 UTC
 - **ps5upload**: v12.0.0 -> v12.2.0 - 11.60: unverified
 
