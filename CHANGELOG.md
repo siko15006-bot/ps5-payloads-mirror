@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-10 21:44 UTC
+- **ps5upload**: v12.4.4 -> v12.4.6 - 11.60: unverified
+- **LiveShell**: v1.6.0 -> v1.7.0 - 11.60: unverified
+
 ## 2026-11-10 15:32 UTC
 - **ps5-web-file-manager**: v1.13-rc2 -> v1.14 - 11.60: yes
 - **ps5upload**: v12.4.2 -> v12.4.4 - 11.60: unverified
