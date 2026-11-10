@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-10 15:32 UTC
+- **ps5-web-file-manager**: v1.13-rc2 -> v1.14 - 11.60: yes
+- **ps5upload**: v12.4.2 -> v12.4.4 - 11.60: unverified
+
 ## 2026-11-10 00:04 UTC
 - **ps5upload**: v12.3.0 -> v12.4.2 - 11.60: unverified
 - **ps5-dump-forge**: v0.5.4 -> v0.5.5 - 11.60: unverified
