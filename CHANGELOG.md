@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-10 00:04 UTC
+- **ps5upload**: v12.3.0 -> v12.4.2 - 11.60: unverified
+- **ps5-dump-forge**: v0.5.4 -> v0.5.5 - 11.60: unverified
+- **PS5-Suite**: v8.0.0 -> v8.1.1 - 11.60: unverified
+
 ## 2026-11-09 15:52 UTC
 - **ps5upload**: v12.2.0 -> v12.3.0 - 11.60: unverified
 - **ProsperoMgr**: v1.1 -> v1.2 - 11.60: unverified
