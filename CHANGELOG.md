@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-11 01:48 UTC
+- **ps5upload**: v12.4.6 -> v12.4.7 - 11.60: unverified
+
 ## 2026-11-10 21:44 UTC
 - **ps5upload**: v12.4.4 -> v12.4.6 - 11.60: unverified
 - **LiveShell**: v1.6.0 -> v1.7.0 - 11.60: unverified
