@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-12 08:08 UTC
+- **onionHEN**: v0.9.0 -> nightly (pre-release) - 11.60: yes
+- **ps5upload**: v12.4.10 -> v12.4.12 - 11.60: unverified
+
 ## 2026-11-12 00:25 UTC
 - **ps5upload**: v12.4.8 -> v12.4.10 - 11.60: unverified
 
