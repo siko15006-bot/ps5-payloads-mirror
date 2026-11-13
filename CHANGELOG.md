@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-13 06:07 UTC
+- **PS5-TabShifter**: v1.3.0 -> v1.4.0 - 11.60: yes
+
 ## 2026-11-12 23:26 UTC
 - **ps5upload**: v12.4.12 -> v12.4.14 - 11.60: unverified
 
