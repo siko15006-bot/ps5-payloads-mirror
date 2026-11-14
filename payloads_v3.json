@@ -607,6 +607,21 @@
       "fw_note": "README states 7.00-13.60; verified on 13.60; DS4 support not hardware-tested"
     },
     {
+      "name": "Kraken-Mount",
+      "filename": "Kraken-Mount_v0.0.1-beta.elf",
+      "url": "https://github.com/siko15006-bot/ps5-payloads-mirror/releases/download/payloads-mirror/Kraken-Mount_v0.0.1-beta.elf",
+      "source": "https://github.com/quer3q/kraken-mount/releases",
+      "source_direct": "https://github.com/quer3q/kraken-mount/releases/download/v0.0.1-beta/kraken-mount.elf",
+      "version": "v0.0.1-beta",
+      "last_update": "2026-11-13",
+      "category": "Utilities & Tools",
+      "checksum": "32cdf8e9aee9a8e91a7acd8884ac4701a75a38d96d483ea00bb7cbf4fe11a522",
+      "prerelease": false,
+      "description": "# Kraken Mount v0.0.1-beta\r",
+      "fw_11_60": "unverified",
+      "fw_note": "Beta v0.0.1: experimental, few games tested; no firmware statement, no rest-mode handling found. Needs debug FPKG from dump-forge or plain/zstd/LZ4 game folders"
+    },
+    {
       "name": "PS5-Suite",
       "filename": "PS5-Suite_v8.1.1.elf",
       "url": "https://github.com/siko15006-bot/ps5-payloads-mirror/releases/download/payloads-mirror/PS5-Suite_v8.1.1.elf",
