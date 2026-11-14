@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-14 21:16 UTC
+- **ps5upload**: v12.4.19 -> v12.4.20 (pre-release) - 11.60: unverified
+
 ## 2026-11-14 16:29 UTC
 - **ps5upload**: v12.4.18 -> v12.4.19 - 11.60: unverified
 - **ps5-patchdl**: v0.3.12 -> v0.3.13 - 11.60: yes
