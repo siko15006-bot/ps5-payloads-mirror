@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-15 01:41 UTC
+- **PS5Save**: v2 -> v3 - 11.60: unverified
+
 ## 2026-11-14 21:16 UTC
 - **ps5upload**: v12.4.19 -> v12.4.20 (pre-release) - 11.60: unverified
 
