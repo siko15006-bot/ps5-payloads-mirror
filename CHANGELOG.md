@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-16 01:45 UTC
+- **ps5upload**: v12.4.23 -> v12.5.0 (pre-release) - 11.60: unverified
+
 ## 2026-11-15 21:36 UTC
 - **ps5upload**: v12.4.22 -> v12.4.23 - 11.60: unverified
 - **Kraken-Mount**: v0.0.1-beta -> v0.2.0 - 11.60: unverified
