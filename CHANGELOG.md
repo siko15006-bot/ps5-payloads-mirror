@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-16 20:13 UTC
+- **NeoEnabler**: v0.6.2 -> 0.7.0 - 11.60: yes
+- **ps5-dump-forge**: v0.5.5 -> v0.5.6 - 11.60: unverified
+- **WebKit-Autoloader-Installer**: v0.7.1 -> v0.8.0-pre-627ba8c (pre-release) - 11.60: unverified
+- **Kraken-Mount**: v0.2.0 -> v0.2.1 - 11.60: unverified
+
 ## 2026-11-16 09:21 UTC
 - **ps5upload**: v12.5.0 -> v12.5.1 - 11.60: unverified
 
