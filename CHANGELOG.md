@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-20 19:53 UTC
+- **ps5upload**: v12.6.14 -> v12.6.16 - 11.60: unverified
+- **Kraken-Mount**: v0.3.0 -> v0.3.1 - 11.60: unverified
+- **Common-FPS-for-PS5**: v1.2.3 -> v1.2.4 - 11.60: yes
+
 ## 2026-11-20 11:14 UTC
 - **ps5upload**: v12.6.13 -> v12.6.14 (pre-release) - 11.60: unverified
 - **WebKit-Autoloader-Installer**: v0.8.0 -> v0.8.2 - 11.60: unverified
