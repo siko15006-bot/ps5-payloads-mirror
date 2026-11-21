@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-21 01:18 UTC
+- **ps5upload**: v12.6.16 -> v12.6.17 (pre-release) - 11.60: unverified
+- **Common-FPS-for-PS5**: v1.2.4 -> v1.2.5 - 11.60: yes
+
 ## 2026-11-20 19:53 UTC
 - **ps5upload**: v12.6.14 -> v12.6.16 - 11.60: unverified
 - **Kraken-Mount**: v0.3.0 -> v0.3.1 - 11.60: unverified
