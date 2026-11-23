@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-23 00:08 UTC
+- **ps5upload**: v12.6.21 -> v12.6.23 - 11.60: unverified
+
 ## 2026-11-22 18:23 UTC
 - **ps5-dump-forge**: v0.5.6 -> v0.5.7 - 11.60: unverified
 
