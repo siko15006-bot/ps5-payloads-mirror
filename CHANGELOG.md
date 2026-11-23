@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-23 21:06 UTC
+- **ps5upload**: v12.6.24 -> v12.6.25 - 11.60: unverified
+
 ## 2026-11-23 08:49 UTC
 - **ps5upload**: v12.6.23 -> v12.6.24 - 11.60: unverified
 - **WebKit-Autoloader-Installer**: v0.8.3 -> v0.8.4 - 11.60: unverified
