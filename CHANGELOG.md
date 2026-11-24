@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-24 17:24 UTC
+- **Kraken-Mount**: v0.3.1 -> v0.3.2 - 11.60: unverified
+
 ## 2026-11-24 05:33 UTC
 - NEW **TITAN-CORE** v1.0.0 - 11.60: unverified
 
