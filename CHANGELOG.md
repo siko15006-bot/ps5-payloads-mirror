@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-24 05:33 UTC
+- NEW **TITAN-CORE** v1.0.0 - 11.60: unverified
+
 ## 2026-11-24 05:17 UTC
 - **ps5upload**: v12.6.25 -> v12.6.26 - 11.60: unverified
 
