@@ -70,6 +70,7 @@ REPOS = {
  "PS5-TabShifter":          ("xvvulcanvx/PS5-TabShifter", "Utilities & Tools", "yes", "README: universal FW 5.00-13.60; move apps between Games/Media tabs"),
  "PlayTime":                ("ghost1372/PlayTime", "Utilities & Tools", "likely", "README: works on any firmware your loader supports; edits app.db (backs up to /data/playtime_app.db.bak)"),
  "FGG-PlayPods":            ("FGGstore/FGG-PlayPods", "Utilities & Tools", "yes", "Bluetooth headset audio; README badge: tested on 11.60"),
+ "TITAN-CORE":              ("devchmod/TITAN-CORE", "Utilities & Tools", "unverified", "PS5 game workspace: FPKG mounting, USB install, web UI on port 8097; bundles kstuff-lite and ShadowMountPlus; release says no universal firmware pass was done"),
 }
 # not on GitHub (kept exactly as in v2): garlic-savemgr (git.etawen.dev)
 
