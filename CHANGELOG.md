@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-25 22:18 UTC
+- **NeoEnabler**: 0.7.0 -> v0.7.1-experimental (pre-release) - 11.60: yes
+- **ps5upload**: v12.6.29 -> v12.6.30 - 11.60: unverified
+- **Common-FPS-for-PS5**: v1.2.5 -> v1.2.6 - 11.60: yes
+
 ## 2026-11-25 12:28 UTC
 - **ps5upload**: v12.6.27 -> v12.6.29 - 11.60: unverified
 - **Kraken-Mount**: v0.3.2 -> v0.4.0 - 11.60: unverified
