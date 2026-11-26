@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-26 04:50 UTC
+- **ps5upload**: v12.6.30 -> v12.6.31 - 11.60: unverified
+
 ## 2026-11-25 22:18 UTC
 - **NeoEnabler**: 0.7.0 -> v0.7.1-experimental (pre-release) - 11.60: yes
 - **ps5upload**: v12.6.29 -> v12.6.30 - 11.60: unverified
