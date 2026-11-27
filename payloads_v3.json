@@ -783,8 +783,8 @@
       "checksum": "50f074700fc4f427ae87fb2cb986ad07d633ef01799077953817a6ffded7f91d",
       "prerelease": false,
       "description": "# TITAN CORE v1.0\r",
-      "fw_11_60": "unverified",
-      "fw_note": "PS5 game workspace: FPKG mounting, USB install, web UI on port 8097; bundles kstuff-lite and ShadowMountPlus; release says no universal firmware pass was done"
+      "fw_11_60": "yes",
+      "fw_note": "Works on the owner's 11.60 console (owner report). FPKG workspace: USB/external install, web UI on port 8097; bundles kstuff-lite 1.11 and ShadowMountPlus. Close games before Rest Mode"
     }
   ]
 }
