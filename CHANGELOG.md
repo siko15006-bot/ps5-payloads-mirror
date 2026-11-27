@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-27 18:00 UTC
+- **ps5upload**: v12.6.38 -> v12.6.42 - 11.60: unverified
+- **zftpd**: v1.7.0 -> v1.7.1 - 11.60: unverified
+- **Kraken-Mount**: v0.4.1 -> v0.4.2 - 11.60: unverified
+- **PS5-KBM-Bridge**: v0.15 -> v0.15.1 - 11.60: yes
+
 ## 2026-11-27 07:51 UTC
 - **ps5upload**: v12.6.35 -> v12.6.38 - 11.60: unverified
 
