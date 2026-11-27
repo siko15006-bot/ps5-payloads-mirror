@@ -32,7 +32,7 @@ REPOS = {
  "ps5-web-file-manager":    ("owendswang/ps5-web-file-manager", "Networking & Servers", "yes", "Author benchmarks on FW 11.60"),
  "ps5upload":               ("phantomptr/ps5upload", "Networking & Servers", "unverified", "No firmware statement"),
  "ps5-dump-forge":          ("quer3q/ps5-dump-forge", "Utilities & Tools", "unverified", "No firmware statement"),
- "WebKit-Autoloader-Installer": ("itsPLK/ps5-webkit-autoloader", "Loaders", "unverified", "Changelog mentions 9.05 and 1.00-5.50 only; not for 11.60 browser entry"),
+ "WebKit-Autoloader-Installer": ("itsPLK/ps5-webkit-autoloader", "Loaders", "yes", "Runs on the owner's 11.60 console (owner report). Author states 6.00-13.60. Its own elfldr accepts only localhost: payloads sent from a phone or PC fail until a normal elfldr is loaded (via Payload Manager, or elfldr.elf then !4000 in autoload.txt)"),
  "CheatRunner":             ("notmaj0r/CheatRunner", "Utilities & Tools", "unverified", "No firmware statement"),
  "ShadowMountPlus":         ("drakmor/ShadowMountPlus", "Utilities & Tools", "unverified", "No firmware statement"),
  "zftpd":                   ("seregonwar/zftpd", "Networking & Servers", "unverified", "No firmware statement"),
