@@ -206,8 +206,8 @@
       "checksum": "6224b1d4e221b3dcae1f198883ee998f16c824e518112e64189c5d1d376ed8d6",
       "icon_key": "cf0638e2449462e5df0467fbebb46f4404b66374650ce0dec4457408252815c7",
       "prerelease": false,
-      "fw_11_60": "unverified",
-      "fw_note": "Changelog mentions 9.05 and 1.00-5.50 only; not for 11.60 browser entry"
+      "fw_11_60": "yes",
+      "fw_note": "Runs on the owner's 11.60 console (owner report). Author states 6.00-13.60. Its own elfldr accepts only localhost: payloads sent from a phone or PC fail until a normal elfldr is loaded (via Payload Manager, or elfldr.elf then !4000 in autoload.txt)"
     },
     {
       "name": "CheatRunner",
