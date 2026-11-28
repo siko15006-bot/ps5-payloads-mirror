@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-28 01:18 UTC
+- **ps5upload**: v12.6.42 -> v12.6.44 - 11.60: unverified
+
 ## 2026-11-27 18:00 UTC
 - **ps5upload**: v12.6.38 -> v12.6.42 - 11.60: unverified
 - **zftpd**: v1.7.0 -> v1.7.1 - 11.60: unverified
