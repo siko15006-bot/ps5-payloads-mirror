@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-28 10:04 UTC
+- **ps5upload**: v12.6.44 -> v12.6.46 - 11.60: unverified
+
 ## 2026-11-28 01:18 UTC
 - **ps5upload**: v12.6.42 -> v12.6.44 - 11.60: unverified
 
